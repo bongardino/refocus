@@ -3,11 +3,28 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # devise :database_authenticatable, :registerable,
   #        :recoverable, :rememberable, :validatable
+
   devise :trackable, :omniauthable, :timeoutable, omniauth_providers: [:google_oauth2]
 
   def self.from_omniauth(auth)
-  	# p auth
-  	uid = auth.uid.downcase
-  	binding.pry
+    email = auth.info.email, 
+    first_name = auth.info.first_name, 
+    last_name = auth.info.last_name, 
+    image_url = auth.info.image
+    # binding.pry
+    puts JSON.pretty_generate(auth)
+    auth
   end
+
+  # devise :omniauthable, :omniauth_providers => [:google_oauth2]
+  # def self.from_omniauth(auth)
+  #   binding.pry
+  #   # Either create a User record or update it based on the provider (Google) and the UID   
+  #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+  #     user.token = auth.credentials.token
+  #     user.expires = auth.credentials.expires
+  #     user.expires_at = auth.credentials.expires_at
+  #     user.refresh_token = auth.credentials.refresh_token
+  #   end
+  # end
 end

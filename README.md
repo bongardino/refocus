@@ -1,33 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TODO:
+OAuth kind of works, need to turn the authentication into a User
+Google API calendar integration
 
-Things you may want to cover:
+CLEANUP
+remove `bypass_ssl_verification.rb` from `config/initializers` because netscope
+reduce Google OAuth requirements to actually be read only
+Remove unused columns from User model 
+remove `new_user_registration_url` from `omniauth_callbacks_controller.rb`.  My users aren't devise registerable, so I don't need that
+Transition to database-less, mebee active record?
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-
+https://medium.com/@_benrudolph/end-to-end-devise-omniauth-google-api-rails-7f432b38ed75
 
 https://www.thegreatcodeadventure.com/using-the-google-api-ruby-client-with-google-calendar-api/
-step 
-Step 4: Custom Callback Controller and User Authorization Method
 
 https://viblo.asia/p/integrating-google-calendar-api-with-rails-5-gAm5yq6D5db
