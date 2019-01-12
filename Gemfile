@@ -39,6 +39,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # i did this
 gem 'devise'
 
+gem 'figaro'
+
+gem 'omniauth-google-oauth2'
+
+gem 'google-api-client', require: 'google/apis/calendar_v3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
